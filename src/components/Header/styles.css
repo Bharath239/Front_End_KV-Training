@@ -1,0 +1,19 @@
+.navBar{
+    width: 100vw;
+    height: 77px;
+    background-color: #ffffff;
+    box-shadow: 1px 0px 10px #8e909344;
+    z-index: 2;
+}
+
+.logoBox{
+    width: 300px;
+    background-color: #f9fafe   ;
+}
+
+.logoBox img{
+    height: 40px;
+    width: 208px;
+    margin-left: 46px;
+    margin-top: 16px;
+}

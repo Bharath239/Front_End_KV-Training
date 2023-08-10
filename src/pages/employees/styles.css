@@ -1,0 +1,16 @@
+.employeesPage{
+    display: flex;
+    flex-direction: column;
+}
+
+.notNavBar{
+    display: flex;
+    flex-direction: row;
+    background-color: #fafafa;
+}
+
+.notSideBar{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
