@@ -1,0 +1,18 @@
+label{
+    font-size: small;
+}
+
+.loginblock{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.inputbox {
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px 10px;
+}

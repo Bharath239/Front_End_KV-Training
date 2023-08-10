@@ -1,0 +1,47 @@
+.leftpanel{
+  border-style: solid;
+  border-width: 30px;
+  border-color: #ffffff;
+  background-color: #e6f7fd;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leftpanel img{
+  border-style: solid;
+  border-width: 30px;
+  border-radius: 50%;
+  border-color: #ffffff;
+  width: 500px;
+  height: 500px;
+}
+
+.rightpanel{
+  border-style: solid;
+  border-width: 30px;
+  border-color: #ffffff;
+  width: 50%;
+  background-color: #ffffff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginbox{
+  height: 500px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: aqua; */
+}
+
+.kvlogo{
+  background-color: black;
+  width: min-content;
+}
+
