@@ -25,11 +25,13 @@
     max-width: 259px;
     background-color: #EAF9FF;
     border-radius: 50px;
+    border-width: 0px;
     margin-top: 21px;
     margin-right: 19px;
     margin-left: auto;
     display: flex;
     flex-direction: row;
+    cursor:pointer ;
 }
 
 .actionIcon{

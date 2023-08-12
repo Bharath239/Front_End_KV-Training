@@ -3,6 +3,8 @@ import Header from '../../components/Header/Header';
 import './styles.css';
 import { FC } from 'react';
 import SubHeader from '../../components/SubHeader/SubHeader';
+import Table from '../../components/Table/Table';
+import { Employees } from '../../utils/EmployeeList';
 
 const EmployeesPage: FC = () => {
   return (
@@ -11,7 +13,8 @@ const EmployeesPage: FC = () => {
       <div className='notNavBar'>
         <Sidebar />
         <div className='notSideBar'>
-          <SubHeader subHeading='Employee Details' action='Edit' icon='edit' />
+          <SubHeader subHeading='Employee List' action='add' />
+          <Table employees={Employees} />
         </div>
       </div>
     </div>

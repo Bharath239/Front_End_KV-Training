@@ -1,0 +1,9 @@
+.createEmployeeFrom{
+    width: 450px;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-right: 50px;
+    margin-top: 30px;
+}

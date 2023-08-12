@@ -1,18 +1,17 @@
 import { FC } from 'react';
+import './styles.css';
 
 type InputTypes = {
-  label: string;
+  value: string;
   type: 'filled' | 'empty';
-  onClickHandler: () => void;
+  onClickHandler?: () => void;
 };
 
 const Button: FC<InputTypes> = (props) => {
   return (
-    <>
-      <button className={props.type} onClick={props.onClickHandler}>
-        {props.label}
-      </button>
-    </>
+    <button className={props.type} onClick={props.onClickHandler}>
+      {props.value}
+    </button>
   );
 };
 

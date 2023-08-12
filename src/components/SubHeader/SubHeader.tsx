@@ -1,23 +1,37 @@
 import { FC } from 'react';
 import './styles.css';
+import { useNavigate } from 'react-router-dom';
 
 type InputTypes = {
   subHeading: string;
-  icon: 'add' | 'edit';
-  action: string;
+  action?: 'add' | 'edit';
 };
 
 const SubHeader: FC<InputTypes> = (props) => {
+  const navigate = useNavigate();
+
+  const iconClickHandler = () => {
+    if (props.action === 'add') navigate('/employees/create');
+    else if (props.action === 'edit') navigate('/employees/edit');
+  };
+
   return (
     <div className='subHeaderBox'>
       <div className='subHeader'>{props.subHeading}</div>
-      <div className='actionBox'>
-        <div className='actionIcon'>
-          {props.icon === 'add' && <img className='plusIcon' src='./assets/img/+.png' />}
-          {props.icon === 'edit' && <img className='editIcon' src='./assets/icons/edit.svg' />}
+      {props.action && (
+        <div className='actionBox' onClick={iconClickHandler}>
+          <div className='actionIcon'>
+            {props.action === 'add' && (
+              <img className='plusIcon' src='/assets/img/+.png' alt='addicon' />
+            )}
+            {props.action === 'edit' && (
+              <img className='editIcon' src='/assets/icons/edit.svg' alt='editicon' />
+            )}
+          </div>
+          {props.action === 'edit' && <div className='action'>Edit</div>}
+          {props.action === 'add' && <div className='action'>Create employee</div>}
         </div>
-        <div className='action'> {props.action}</div>
-      </div>
+      )}
     </div>
   );
 };

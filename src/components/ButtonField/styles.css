@@ -1,9 +1,33 @@
 .filled{
     width: 100%;
-    height: 30px;
-    border: 2px solid #00bcff;
-    padding: 10px 75px;
-    background: #00bcff;
-    color: white;
+    height: 100%;
+    margin-top: 16px;
+    box-shadow: 0px 3px 6px #B0E6FA;
+    /* padding: 10px 75px; */
+    background-color: #03AEEE;
+    border: none;
     border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty{
+    width: 100%;
+    height: 100%;
+    margin-top: 16px;
+    box-shadow: 0px 3px 6px #C9C9C929;
+    /* padding: 10px 75px; */
+    background-color: #fff;
+    border: 1px solid #8A8C8F;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #8A8C8F;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

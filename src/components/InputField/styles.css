@@ -11,8 +11,19 @@ label{
 
 .inputbox {
     width: 100%;
-    border: 2px solid #aaa;
+    height: 50px;
+    border: 1px solid #B4B7BD;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 31.5px;
+    margin-top: 17px;
     padding: 10px 10px;
+    font-weight: 400;
+    font-size: 15px;
+    font-family: sans-serif;
+    color: #000;
 }
+/* 
+.inputbox:focus-visible{
+    color: #1EB4F0;
+    font-weight: 400;
+} */
