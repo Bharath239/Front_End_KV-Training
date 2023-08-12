@@ -1,0 +1,58 @@
+.leftHalf{
+  border-style: solid;
+  border-width: 32px;
+  border-color: #ffffff;
+  background-color: #e6f7fd;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bannerLogo{
+  border-style: solid;
+  border-width: 30px;
+  border-radius: 50%;
+  border-color: #ffffff;
+  width: 678px;
+  height: 678px;
+}
+
+.rightHalf{
+  border-style: solid;
+  border-width: 32px;
+  border-color: #ffffff;
+  width: 50%;
+  background-color: #ffffff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginbox{
+  height: 500px;
+  width: 460px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.kvlogo{
+  height: 45px;
+  width: 208px;
+  margin-bottom: 50.5px;
+}
+
+.loginButton{
+  height: 50px;
+  width: 460px;
+}
+
+.errorMessage{
+  color: #FA4242;
+  margin-bottom: 7.5px;
+  margin-top: -26.5px;
+}
+

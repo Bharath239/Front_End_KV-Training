@@ -1,0 +1,27 @@
+
+.eachDetail{
+    display: flex;
+    flex-direction: column;
+    min-width: 117px;
+    width: 20%;
+    padding: 34px 0 0 34px;
+    font-size: 15px;
+}
+
+.eachLabel{
+    height: 22px;
+    width: 117px;
+    color: #8B8D9D;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.detailContent{
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.addressDetail{
+    display: block;
+}
