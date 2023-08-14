@@ -15,7 +15,7 @@ const App: FC = () => (
         <Route path='/employees' element={<EmployeesPage />} />
         <Route path='/employees/:id' element={<EmployeeDetailsPage />} />
         <Route path='/employees/create' element={<CreateEmployeePage />} />
-        <Route path='/employees/edit' element={<EditEmployeePage />} />
+        <Route path='/employees/edit/:id' element={<EditEmployeePage />} />
       </Routes>
     </BrowserRouter>
   </div>

@@ -4,35 +4,43 @@ import './styles.css';
 import DropDownField from '../DropDownField/DropDownField';
 import Button from '../ButtonField/Button';
 import { useNavigate } from 'react-router-dom';
+import { Employee } from '../../utils/EmployeeList';
 
 type InputType = {
   idVisibility: boolean;
+  employee?: Employee;
 };
 
 const EmployeeDetailsInputFeild: FC<InputType> = (props) => {
-  const [employeeName, setEmployeeName] = useState('');
+  const [employeeName, setEmployeeName] = useState(props.employee ? props.employee.name : '');
   const onEmployeeNameChange = (e) => setEmployeeName(e.target.value);
-  const [joiningDate, setJoiningDate] = useState('');
+  const [joiningDate, setJoiningDate] = useState(props.employee ? props.employee.joiningDate : '');
   const onJoiningDateChange = (e) => setJoiningDate(e.target.value);
-  const [experience, setExperience] = useState('');
+  const [experience, setExperience] = useState(props.employee ? props.employee.experience : '');
   const onExperienceChange = (e) => setExperience(e.target.value);
   const [department, setDepartment] = useState('');
   const onDepartmentSelect = (e) => setDepartment(e.target.value);
-  const [role, setRole] = useState('');
+  const [role, setRole] = useState(props.employee ? props.employee.role : '');
   const onRoleSelect = (e) => setRole(e.target.value);
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState(
+    props.employee ? (props.employee.isActive ? 'Active' : 'Inactive') : ''
+  );
   const onStatusSelect = (e) => setStatus(e.target.value);
-  const [address_line_1, setAddressLine1] = useState('');
+  const [address_line_1, setAddressLine1] = useState(
+    props.employee ? props.employee.address.address_line_1 : ''
+  );
   const onAddressLine1Change = (e) => setAddressLine1(e.target.value);
-  const [address_line_2, setAddressLine2] = useState('');
+  const [address_line_2, setAddressLine2] = useState(
+    props.employee ? props.employee.address.address_line_2 : ''
+  );
   const onAddressLine2Change = (e) => setAddressLine2(e.target.value);
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState(props.employee ? props.employee.address.city : '');
   const onCityChange = (e) => setCity(e.target.value);
-  const [state, setState] = useState('');
+  const [state, setState] = useState(props.employee ? props.employee.address.state : '');
   const onStateChange = (e) => setState(e.target.value);
-  const [country, setCountry] = useState('');
+  const [country, setCountry] = useState(props.employee ? props.employee.address.country : '');
   const onCountryChange = (e) => setCountry(e.target.value);
-  const [pincode, setPincode] = useState('');
+  const [pincode, setPincode] = useState(props.employee ? props.employee.address.pincode : '');
   const onPincodeChange = (e) => setPincode(e.target.value);
 
   const departmentOptions = [1, 2, 3].map((item) => <option key={item}>{item}</option>);
@@ -67,7 +75,7 @@ const EmployeeDetailsInputFeild: FC<InputType> = (props) => {
       <DetailsInputBox
         label='Experience'
         placeholder='Experience'
-        inputState={experience}
+        inputState={String(experience)}
         onChangeHandler={onExperienceChange}
       />
       <DropDownField
@@ -120,7 +128,7 @@ const EmployeeDetailsInputFeild: FC<InputType> = (props) => {
       </div>
       <DetailsInputBox
         label='Employee ID'
-        placeholder='Employee ID'
+        inputState={String(props.employee.id)}
         visibility={props.idVisibility}
       />
       <div className='buttonArea'>

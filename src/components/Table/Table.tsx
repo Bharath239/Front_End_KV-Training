@@ -13,6 +13,9 @@ const Table: FC<InputTypes> = (props) => {
   const employeeClickHandler = (id) => {
     navigate('/employees/' + id);
   };
+  // const editIconClickHandler = ()=>{
+  //   navigate('/employees/edit/')
+  // }
 
   return (
     <table className='table'>
@@ -43,7 +46,18 @@ const Table: FC<InputTypes> = (props) => {
                 <StatusField status={employee.isActive}></StatusField>
               </td>
               <td>{employee.experience + ' years'}</td>
-              <td>add icons</td>
+              <td>
+                <img
+                  className='actionIcons'
+                  src='./assets/icons/red-delete.svg'
+                  alt='delete icon'
+                />
+                <img
+                  className='actionIcons'
+                  src='/assets/icons/blue-edit-icon.svg'
+                  alt='edit icon'
+                />
+              </td>
             </tr>
           );
         })}

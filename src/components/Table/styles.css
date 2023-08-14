@@ -40,3 +40,10 @@ td{
     flex-grow: 1;
     width: 14.28%;
 }
+
+.actionIcons{
+    height: 17px;
+    width: 15px;
+    margin-right: 30px;
+    cursor: pointer;
+}

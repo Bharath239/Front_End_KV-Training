@@ -4,7 +4,7 @@ import './styles.css';
 type InputTypes = {
   label?: string;
   inputState?: string;
-  placeholder: string;
+  placeholder?: string;
   onChangeHandler?: (e) => void;
   visibility?: boolean;
 };
