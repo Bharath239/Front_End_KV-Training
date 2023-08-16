@@ -3,12 +3,18 @@ import Header from '../../components/Header/Header';
 import SubHeader from '../../components/SubHeader/SubHeader';
 import './styles.css';
 import DetailsField from '../../components/DetailsField/DetailsField';
-import { Employees } from '../../utils/EmployeeList';
+import { Employee } from '../../utils/types';
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const EmployeeDetailsPage = () => {
   const { id } = useParams();
-  const employee = Employees.find((emp) => emp.id == Number(id));
+  const employeesData: Employee[] = useSelector((state: any) => {
+    return state.employees;
+  });
+  const employee = employeesData.find((emp) => emp.id == Number(id));
+
+  console.log('***', employee);
 
   return (
     <div className='employeesPage'>
@@ -16,7 +22,7 @@ const EmployeeDetailsPage = () => {
       <div className='notNavBar'>
         <Sidebar />
         <div className='notSideBar'>
-          <SubHeader subHeading='Employee Details' action='edit' />
+          <SubHeader subHeading='Employee Details' action='edit' employeeId={id} />
           <div className='detailBox'>
             <DetailsField detail={employee.name} label={'Employee Name'} />
             <DetailsField detail={employee.joiningDate} label={'Joining Date'} />

@@ -1,8 +1,10 @@
 import { FC } from 'react';
 import './styles.css';
-import { Employee } from '../../utils/EmployeeList';
 import { useNavigate } from 'react-router-dom';
 import StatusField from '../StatusField/StatusField';
+import { useDispatch } from 'react-redux';
+import { Employee } from '../../utils/types';
+// import ConfirmDialogBox from '../ConfirmDialogBox/ConfirmDialogBox';
 
 type InputTypes = {
   employees: Employee[];
@@ -13,9 +15,25 @@ const Table: FC<InputTypes> = (props) => {
   const employeeClickHandler = (id) => {
     navigate('/employees/' + id);
   };
-  // const editIconClickHandler = ()=>{
-  //   navigate('/employees/edit/')
-  // }
+
+  const dispatch = useDispatch();
+
+  const handleDelete = (e, id) => {
+    dispatch({
+      type: 'EMPLOYEE:DELETE',
+      payload: id
+    });
+    e.stopPropagation();
+  };
+  const handleEdit = (e, id) => {
+    navigate('/employees/edit/' + id);
+    e.stopPropagation();
+  };
+  // const [openStatus, setOpenStatus] = useState(false);
+
+  // const cancelClickHandler = () => {
+  //   setOpenStatus(false);
+  // };
 
   return (
     <table className='table'>
@@ -49,13 +67,23 @@ const Table: FC<InputTypes> = (props) => {
               <td>
                 <img
                   className='actionIcons'
-                  src='./assets/icons/red-delete.svg'
+                  src='/assets/icons/red-delete.svg'
                   alt='delete icon'
+                  // onClick={() => setOpenStatus(true)}
+                  onClick={(e) => handleDelete(e, employee.id)}
                 />
+                {/* <ConfirmDialogBox
+                    title='Are you sure?'
+                    content='Do you realy want to delete employee'
+                    openStatus={openStatus}
+                    cancelClickHandler={cancelClickHandler}
+                    confirmClickHandler={handleDelete(e, employee.id)}
+                  ></ConfirmDialogBox> */}
                 <img
                   className='actionIcons'
                   src='/assets/icons/blue-edit-icon.svg'
                   alt='edit icon'
+                  onClick={(e) => handleEdit(e, employee.id)}
                 />
               </td>
             </tr>

@@ -1,10 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 import { FC, useState } from 'react';
 import DetailsInputBox from '../DetailsInputBox/DetailsInputBox';
 import './styles.css';
 import DropDownField from '../DropDownField/DropDownField';
 import Button from '../ButtonField/Button';
 import { useNavigate } from 'react-router-dom';
-import { Employee } from '../../utils/EmployeeList';
+import { useDispatch } from 'react-redux';
+import { Employee } from '../../utils/types';
 
 type InputType = {
   idVisibility: boolean;
@@ -18,7 +21,7 @@ const EmployeeDetailsInputFeild: FC<InputType> = (props) => {
   const onJoiningDateChange = (e) => setJoiningDate(e.target.value);
   const [experience, setExperience] = useState(props.employee ? props.employee.experience : '');
   const onExperienceChange = (e) => setExperience(e.target.value);
-  const [department, setDepartment] = useState('');
+  const [department, setDepartment] = useState(props.employee ? props.employee.department : '');
   const onDepartmentSelect = (e) => setDepartment(e.target.value);
   const [role, setRole] = useState(props.employee ? props.employee.role : '');
   const onRoleSelect = (e) => setRole(e.target.value);
@@ -54,8 +57,62 @@ const EmployeeDetailsInputFeild: FC<InputType> = (props) => {
   const navigate = useNavigate();
 
   const onCancel = () => {
-    if (props.idVisibility) navigate('employees/:id');
-    else navigate('/employees');
+    if (!props.employee) navigate('/employees/');
+    else navigate(-1);
+  };
+
+  const dispatch = useDispatch();
+
+  const handleCreate = () => {
+    dispatch({
+      type: 'EMPLOYEE:CREATE',
+      payload: {
+        employee: {
+          name: employeeName,
+          id: Math.floor(Math.random() * 10000),
+          joiningDate: joiningDate,
+          role: role,
+          isActive: status,
+          experience: experience,
+          address: {
+            address_line_1: address_line_1,
+            address_line_2: address_line_2,
+            city: city,
+            state: state,
+            country: country,
+            pincode: pincode
+          },
+          department: department
+        }
+      }
+    });
+    navigate('/employees');
+  };
+
+  const handleSave = () => {
+    dispatch({
+      type: 'EMPLOYEE:EDIT',
+      payload: {
+        employee: {
+          name: employeeName,
+          id: props.employee.id,
+          joiningDate: joiningDate,
+          role: role,
+          isActive: status,
+          experience: experience,
+          address: {
+            address_line_1: address_line_1,
+            address_line_2: address_line_2,
+            city: city,
+            state: state,
+            country: country,
+            pincode: pincode
+          },
+          department: department
+        }
+      }
+    });
+    navigate('/employees/' + props.employee?.id);
   };
 
   return (
@@ -128,12 +185,14 @@ const EmployeeDetailsInputFeild: FC<InputType> = (props) => {
       </div>
       <DetailsInputBox
         label='Employee ID'
-        inputState={String(props.employee.id)}
+        inputState={String(props.employee?.id)}
         visibility={props.idVisibility}
       />
       <div className='buttonArea'>
-        {props.idVisibility && <Button value={'Save'} type='filled' />}
-        {!props.idVisibility && <Button value={'Create'} type='filled' />}
+        {props.idVisibility && <Button value={'Save'} type='filled' onClickHandler={handleSave} />}
+        {!props.idVisibility && (
+          <Button value={'Create'} type='filled' onClickHandler={handleCreate} />
+        )}
         <Button value={'Cancel'} type='empty' onClickHandler={onCancel} />
       </div>
     </div>

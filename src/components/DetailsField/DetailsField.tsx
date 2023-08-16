@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './styles.css';
 import StatusField from '../StatusField/StatusField';
-import { Address } from '../../utils/EmployeeList';
+import { Address } from '../../utils/types';
 
 type InputTypes = {
   detail?: string | number | boolean;
@@ -10,8 +10,6 @@ type InputTypes = {
 };
 
 const DetailsField: FC<InputTypes> = (props) => {
-  if (props.address) console.log(props.address.pincode);
-
   return (
     <div className='eachDetail'>
       <label className='eachLabel'>{props.label}</label>

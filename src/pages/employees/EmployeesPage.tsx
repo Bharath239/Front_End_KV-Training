@@ -4,9 +4,14 @@ import './styles.css';
 import { FC } from 'react';
 import SubHeader from '../../components/SubHeader/SubHeader';
 import Table from '../../components/Table/Table';
-import { Employees } from '../../utils/EmployeeList';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { Employee } from '../../utils/types';
 
 const EmployeesPage: FC = () => {
+  const employeesData: Employee[] = useSelector((state: any) => {
+    return state.employees;
+  });
+
   return (
     <div className='employeesPage'>
       <Header />
@@ -14,7 +19,7 @@ const EmployeesPage: FC = () => {
         <Sidebar />
         <div className='notSideBar'>
           <SubHeader subHeading='Employee List' action='add' />
-          <Table employees={Employees} />
+          <Table employees={employeesData} />
         </div>
       </div>
     </div>

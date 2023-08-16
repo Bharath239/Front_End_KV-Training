@@ -36,23 +36,25 @@ const LoginPage: FC = () => {
       <div className='rightHalf'>
         <div className='loginbox'>
           <img className='kvlogo' src='./assets/img/kv-logo.png' alt='kvlogo' />
-          <Input
-            type='Text'
-            placeholder='Username'
-            inputState={userName}
-            onChangeHandler={onUserNameChangeHandler}
-          ></Input>
-          {emptyUsernameError && <p className='errorMessage'>Username is empty</p>}
-          <Input
-            type='Password'
-            placeholder='Password'
-            inputState={password}
-            onChangeHandler={onPasswordChangeHandler}
-          ></Input>
-          {emptyPasswordError && <p className='errorMessage'>Password is empty</p>}
-          <div className='loginButton'>
-            <Button type='filled' value='Login' onClickHandler={onClickHandler}></Button>
-          </div>
+          <form action=''>
+            <Input
+              type='Text'
+              placeholder='Username'
+              inputState={userName}
+              onChangeHandler={onUserNameChangeHandler}
+            ></Input>
+            {emptyUsernameError && <p className='errorMessage'>Username is empty</p>}
+            <Input
+              type='Password'
+              placeholder='Password'
+              inputState={password}
+              onChangeHandler={onPasswordChangeHandler}
+            ></Input>
+            {emptyPasswordError && <p className='errorMessage'>Password is empty</p>}
+            <div className='loginButton'>
+              <Button type='filled' value='Login' onClickHandler={onClickHandler}></Button>
+            </div>
+          </form>
         </div>
       </div>
     </>
