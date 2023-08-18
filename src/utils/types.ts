@@ -1,12 +1,16 @@
+import { Role } from './enum';
+
 export type Employee = {
   name: string;
+  username?: string;
+  password?: string;
   id: number;
   joiningDate: string;
   role: string;
-  isActive: boolean;
-  experience: number;
+  isActive: boolean | string;
+  experience: number | string;
   address: Address;
-  department: string;
+  departmentId: string | number;
 };
 
 export type Address = {
@@ -16,4 +20,10 @@ export type Address = {
   state: string;
   country: string;
   pincode: string;
+};
+
+export type jwtPayload = {
+  name: string;
+  username: string;
+  role: Role;
 };

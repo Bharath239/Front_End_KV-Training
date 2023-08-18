@@ -1,10 +1,10 @@
-import Button, { InputTypes } from './Button';
+import Button, { ButtonInputTypes } from './Button';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 describe('If Button works properly', () => {
   test('If label rendered correctly', () => {
-    const ButtonProps: InputTypes = {
+    const ButtonProps: ButtonInputTypes = {
       value: 'Button',
       type: 'filled'
     };
@@ -15,7 +15,7 @@ describe('If Button works properly', () => {
     expect(element).toHaveTextContent('Button');
   });
   test('If type rendered correctly', () => {
-    const ButtonProps: InputTypes = {
+    const ButtonProps: ButtonInputTypes = {
       value: 'Button',
       type: 'filled'
     };
@@ -27,7 +27,7 @@ describe('If Button works properly', () => {
   });
   test('If onClick is triggered', () => {
     const onClickHandler = jest.fn();
-    const ButtonProps: InputTypes = {
+    const ButtonProps: ButtonInputTypes = {
       value: 'Button',
       type: 'filled',
       onClickHandler
@@ -40,7 +40,7 @@ describe('If Button works properly', () => {
     expect(onClickHandler).toBeCalled();
   });
   test('Check snapshot', () => {
-    const ButtonProps: InputTypes = {
+    const ButtonProps: ButtonInputTypes = {
       value: 'Button',
       type: 'filled'
     };

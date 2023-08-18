@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 
-type InputTypes = {
+export type InputFieldInputTypes = {
   label?: string;
   type: string;
   placeholder: string;
@@ -9,7 +9,7 @@ type InputTypes = {
   onChangeHandler: (e) => void;
 };
 
-const Input: React.FC<InputTypes> = (props) => {
+const Input: React.FC<InputFieldInputTypes> = (props) => {
   return (
     <input
       className='inputbox'
@@ -18,6 +18,7 @@ const Input: React.FC<InputTypes> = (props) => {
       value={props.inputState}
       onChange={props.onChangeHandler}
       required
+      data-testid='input-test'
     />
   );
 };

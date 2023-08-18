@@ -7,8 +7,8 @@ const Sidebar: FC = () => {
   const handleClick = () => navigate('/employees');
 
   return (
-    <div className='leftSideBar'>
-      <div className='selectedBar' onClick={handleClick}>
+    <div className='leftSideBar' data-testid='sidebar-test'>
+      <div className='selectedBar' onClick={handleClick} data-testid='selectedbar-test'>
         <div className='iconbg'>
           <img src='/assets/icons/employees.svg' alt='employeeicon' />
         </div>
