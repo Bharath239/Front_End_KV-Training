@@ -3,15 +3,15 @@ import './styles.css';
 import StatusField from '../StatusField/StatusField';
 import { Address } from '../../utils/types';
 
-type InputTypes = {
+export type DetailsFieldInputTypes = {
   detail?: string | number | boolean;
   address?: Address;
   label: string;
 };
 
-const DetailsField: FC<InputTypes> = (props) => {
+const DetailsField: FC<DetailsFieldInputTypes> = (props) => {
   return (
-    <div className='eachDetail'>
+    <div className='eachDetail' data-testid='detailsField-test'>
       <label className='eachLabel'>{props.label}</label>
       {props.label !== 'Status' && props.label !== 'Address' && (
         <div className='detailContent'>{String(props.detail)}</div>

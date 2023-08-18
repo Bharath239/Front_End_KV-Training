@@ -1,14 +1,17 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import './styles.css';
 import { useNavigate } from 'react-router-dom';
+import { Role } from '../../utils/enum';
 
-type InputTypes = {
+export type SubHeaderInputTypes = {
   subHeading: string;
   action?: 'add' | 'edit';
   employeeId?: string;
 };
 
-const SubHeader: FC<InputTypes> = (props) => {
+const SubHeader: FC<SubHeaderInputTypes> = (props) => {
+  const [authorization, setAuthorization] = useState(false);
+
   const navigate = useNavigate();
 
   const iconClickHandler = () => {
@@ -16,11 +19,16 @@ const SubHeader: FC<InputTypes> = (props) => {
     else if (props.action === 'edit') navigate('/employees/edit/' + props.employeeId);
   };
 
+  useEffect(() => {
+    if ([Role.HR, Role.ADMIN].includes(localStorage.loginRole)) setAuthorization(true);
+    else setAuthorization(false);
+  }, [localStorage.loginRole]);
+
   return (
-    <div className='subHeaderBox'>
+    <div className='subHeaderBox' data-testid='subheader-test'>
       <div className='subHeader'>{props.subHeading}</div>
-      {props.action && (
-        <div className='actionBox' onClick={iconClickHandler}>
+      {authorization && props.action && (
+        <div className='actionBox' onClick={iconClickHandler} data-testid='actionbox-test '>
           <div className='actionIcon'>
             {props.action === 'add' && (
               <img className='plusIcon' src='/assets/img/+.png' alt='addicon' />

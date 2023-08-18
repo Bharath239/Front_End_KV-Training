@@ -4,13 +4,16 @@ import './styles.css';
 import { FC } from 'react';
 import SubHeader from '../../components/SubHeader/SubHeader';
 import Table from '../../components/Table/Table';
-import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { Employee } from '../../utils/types';
+import { useGetEmployeeListQuery } from './api';
+// import { useSelector } from 'react-redux/es/hooks/useSelector';
+// import { Employee } from '../../utils/types';
 
 const EmployeesPage: FC = () => {
-  const employeesData: Employee[] = useSelector((state: any) => {
-    return state.employees;
-  });
+  // const employeesData: Employee[] = useSelector((state: any) => {
+  //   return state.employees;
+  // });
+
+  const { data: employeesData = { data: [] } } = useGetEmployeeListQuery();
 
   return (
     <div className='employeesPage'>

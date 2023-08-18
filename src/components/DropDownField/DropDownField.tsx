@@ -1,26 +1,29 @@
 import { FC } from 'react';
 import './styles.css';
 
-type InputTypes = {
+export type DropDownFieldInputTypes = {
   label: string;
   placeholder: string;
   // eslint-disable-next-line no-undef
   options: JSX.Element[];
-  onChoice: (e) => void;
-  selectedState: string;
+  onChoice?: (e) => void;
+  selectedState: string | number;
 };
 
-const DropDownField: FC<InputTypes> = (props) => {
+const DropDownField: FC<DropDownFieldInputTypes> = (props) => {
   return (
-    <div className='dropDown'>
+    <div className='dropDown' data-testid='dropDown-test'>
       <label>{props.label}</label>
       <select
         className='dropDownSelect'
         placeholder={props.placeholder}
         onChange={props.onChoice}
         value={props.selectedState}
+        required
       >
-        <option hidden>{props.placeholder}</option>
+        <option value='' hidden>
+          {props.placeholder}
+        </option>
         {props.options}
       </select>
     </div>

@@ -1,17 +1,17 @@
 import React from 'react';
 import './styles.css';
 
-type InputTypes = {
+export type DetailsInputBoxInputTypes = {
   label?: string;
-  inputState?: string;
+  inputState?: string | number;
   placeholder?: string;
   onChangeHandler?: (e) => void;
   visibility?: boolean;
 };
 
-const DetailsInputBox: React.FC<InputTypes> = (props) => {
+const DetailsInputBox: React.FC<DetailsInputBoxInputTypes> = (props) => {
   return (
-    <div className='detailsInputBox'>
+    <div className='detailsInputBox' data-testid='detailsInputBox-test'>
       <label>{props.visibility && props.label}</label>
       {props.label !== 'Employee ID' && (
         <input

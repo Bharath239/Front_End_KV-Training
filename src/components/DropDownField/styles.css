@@ -13,8 +13,12 @@
     border-radius: 5px;
     padding: 10px 10px;
     margin-top: 8px;
-    color: #8B8D9D;
+    color: #000;
     border-color: #D9D9D9;
     background-color: #FAFAFA;
     font-size: 14px;
+}
+
+.dropDownSelect:invalid{
+    color: #8B8D9D;
 }

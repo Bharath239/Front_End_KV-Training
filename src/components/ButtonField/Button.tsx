@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import './styles.css';
 
-export type InputTypes = {
+export type ButtonInputTypes = {
   value: string;
   type: 'filled' | 'empty';
   onClickHandler?: () => void;
 };
 
-const Button: FC<InputTypes> = (props) => {
+const Button: FC<ButtonInputTypes> = (props) => {
   return (
     <button className={props.type} onClick={props.onClickHandler} data-testid='button-test'>
       {props.value}
